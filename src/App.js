@@ -1,23 +1,65 @@
-import logo from './logo.svg';
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState } from 'react';
 import './App.css';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import ProtectedRoute from "./utils/ProtectedRoutes";
+import { app } from './firebase-config';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'reactjs-popup/dist/index.css';
+import Navbar from "./components/Navbar";
 
 function App() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const authentication = getAuth();
+    signInWithEmailAndPassword(authentication, email, password)
+      .then((response) => {
+        navigate('/')
+        sessionStorage.setItem('authToken', response._tokenResponse.refreshToken)
+      })
+      .catch((error) => {
+        console.log(error)
+        if(error.code === 'auth/wrong-password'){
+          toast.error('Please check the Password');
+        }
+        if(error.code === 'auth/user-not-found'){
+          toast.error('Please check the Email');
+        }
+      })
+  };
+  const authToken = sessionStorage.getItem("authToken");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {authToken && <Navbar />}
+      <ToastContainer />
+      <Routes>
+        <Route exact path="/login" 
+          element={
+            <Login
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleLogin={handleLogin}
+            />} 
+        />
+        <Route exact 
+          path="/"
+          element={
+            <ProtectedRoute user='gourav' redirectLink="/login" >
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </div>
   );
 }
