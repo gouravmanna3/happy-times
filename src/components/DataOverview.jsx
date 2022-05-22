@@ -58,7 +58,7 @@ const GetCards = (meetData) => {
   }
 
   return(
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{paddingBottom: 0}}>
       <Grid item xs={12} md={6} lg={6}>
         <Paper elevation={12} sx={{backgroundColor: 'rgb(255, 25, 67)'}}>
           <Box className={classes.cardContainer}>
@@ -128,7 +128,6 @@ const DataOverview = () => {
     }
   }, []);
  
-
   return (
     <Box className={classes.root}>
       <Container disableGutters maxWidth={false}>
@@ -151,13 +150,6 @@ const DataOverview = () => {
               <FoodImages />
           </Grid>
         </Grid>
-
-
-
-
-
-
-        
       </Container>
     </Box>         
   )

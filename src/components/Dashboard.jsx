@@ -119,7 +119,9 @@ class Dashboard extends React.Component {
           </div>
         </section>
         <DataOverview />
-        
+        <footer>
+          Developed by Gourav with &#10084;
+        </footer>
       </div>
     )
   }

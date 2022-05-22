@@ -1,29 +1,24 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination, { tablePaginationClasses } from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
+import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
+import { tableCellClasses } from '@mui/material/TableCell';
+
 import { sortMeetData, formatDate, formatPlaces, formatTime } from '../../utils/utils';
 
 const columns = [
   { id: 'sno', label: 'S.No', minWidth: 70 },
-  { id: 'date', label: 'Date', minWidth: 100, align: 'right' },
+  { id: 'date', label: 'Date', minWidth: 130, align: 'right' },
   {
     id: 'fromTime',
     label: 'From',
-    minWidth: 170,
+    minWidth: 130,
     align: 'right',
   },
   {
     id: 'toTime',
     label: 'To',
-    minWidth: 170,
+    minWidth: 130,
     align: 'right',
   },
   {
@@ -59,7 +54,7 @@ const useStyles = makeStyles((theme) => createStyles({
 
 const MeetHistory = ({meetData}) => {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const classes = useStyles();
 
   const handleChangePage = (event, newPage) => {
@@ -71,50 +66,55 @@ const MeetHistory = ({meetData}) => {
     setPage(0);
   };
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }} elevation={6}>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <StyledTableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </StyledTableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sortMeetData(meetData)
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => {
-                return (
-                  <StyledTableRow role="checkbox" tabIndex={-1} key={row.code}>
-                    <TableCell component="th" scope="row">{index+1}</TableCell>
-                    <TableCell align="right">{formatDate(row.date, 'Do MMM, YYYY')}</TableCell>
-                    <TableCell align="right">{formatTime(row.fromTime)}</TableCell>
-                    <TableCell align="right">{formatTime(row.toTime)}</TableCell>
-                    <TableCell align="right">{formatPlaces(row.places)}</TableCell>
-                  </StyledTableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[6, 10, 20]}
-        component="div"
-        count={meetData.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-        classes={{selectLabel: classes.selectLabel, displayedRows: classes.selectLabel}}
-      />
-    </Paper>
+    <Box>
+      <p className="foodHeading">   
+       Meeting History 
+      </p>
+      <Paper sx={{ width: '100%', overflow: 'hidden' }} elevation={6}>
+        <TableContainer sx={{ maxHeight: 440 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <StyledTableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </StyledTableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {sortMeetData(meetData)
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  return (
+                    <StyledTableRow role="checkbox" tabIndex={-1} key={row.code}>
+                      <TableCell component="th" scope="row">{index+1}</TableCell>
+                      <TableCell align="right">{formatDate(row.date, 'Do MMM, YYYY')}</TableCell>
+                      <TableCell align="right">{formatTime(row.fromTime)}</TableCell>
+                      <TableCell align="right">{formatTime(row.toTime)}</TableCell>
+                      <TableCell align="right">{formatPlaces(row.places)}</TableCell>
+                    </StyledTableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 15, 20]}
+          component="div"
+          count={meetData.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          classes={{selectLabel: classes.selectLabel, displayedRows: classes.selectLabel}}
+        />
+      </Paper>
+    </Box>
   )
 }
 

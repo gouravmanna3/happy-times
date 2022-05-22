@@ -77,7 +77,16 @@
 .foodHeading {
   text-align: center;
   font-family: 'Pacifico', cursive;
-  font-size: 3rem;
+  font-size: 27px;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: black;
 }
 
 @keyframes glowing-button-85 {

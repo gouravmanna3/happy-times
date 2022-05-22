@@ -80,7 +80,7 @@ const FoodImages = () => {
        Foods that brought us closer {String.fromCodePoint('0x1F354')} {String.fromCodePoint('0x1F368')} 
        {String.fromCodePoint('0x1F35F')} {String.fromCodePoint('0x1F95F')} 
       </p>
-      <ImageList sx={{ width: 'auto', height: 450 }} variant="woven" cols={3} gap={8}>
+      <ImageList sx={{ width: 'auto', height: 492 }} variant="woven" cols={3} gap={8}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
