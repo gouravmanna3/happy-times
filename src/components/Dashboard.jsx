@@ -10,6 +10,7 @@ import audio from '../assets/audio/harleysInHawaii.mp3';
 
 import './Dashboard.css';
 
+
 class Dashboard extends React.Component {
   constructor() {
     super();

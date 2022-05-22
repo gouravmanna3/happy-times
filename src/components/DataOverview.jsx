@@ -8,6 +8,7 @@ import moment from 'moment';
 import Chart from './Chart';
 import MeetHistory from './MeetTable/MeetHistory';
 import { getMeets } from '../utils/firebaseCalls';
+import FoodImages from './FoodImages';
 
 import './DataOverview.css';
 
@@ -136,12 +137,27 @@ const DataOverview = () => {
             {GetCards(meetData)}
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
-            <Paper elevation={12}>
+            <Paper elevation={6}>
               <Chart meetData={meetData} />
             </Paper>
           </Grid>
         </Grid>
-        <MeetHistory meetData={meetData} />
+
+        <Grid container spacing={2} sx={{marginTop: '24px'}}>
+          <Grid item xs={12} md={6} lg={6}>
+          <MeetHistory meetData={meetData} />
+          </Grid>
+          <Grid item xs={12} md={6} lg={6}>
+              <FoodImages />
+          </Grid>
+        </Grid>
+
+
+
+
+
+
+        
       </Container>
     </Box>         
   )

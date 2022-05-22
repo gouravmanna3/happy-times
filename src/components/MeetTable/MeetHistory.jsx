@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => createStyles({
 
 const MeetHistory = ({meetData}) => {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(6);
   const classes = useStyles();
 
   const handleChangePage = (event, newPage) => {
@@ -71,7 +71,7 @@ const MeetHistory = ({meetData}) => {
     setPage(0);
   };
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', marginTop: '40px' }} elevation={6}>
+    <Paper sx={{ width: '100%', overflow: 'hidden' }} elevation={6}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -105,7 +105,7 @@ const MeetHistory = ({meetData}) => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[5, 10, 20]}
+        rowsPerPageOptions={[6, 10, 20]}
         component="div"
         count={meetData.length}
         rowsPerPage={rowsPerPage}
