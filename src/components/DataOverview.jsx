@@ -4,11 +4,12 @@ import { createStyles, makeStyles } from '@mui/styles';
 import PeopleIcon from '@mui/icons-material/People';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
-import Chart from './Chart';
 import moment from 'moment';
+import Chart from './Chart';
+import MeetHistory from './MeetTable/MeetHistory';
+import { getMeets } from '../utils/firebaseCalls';
 
 import './DataOverview.css';
-import { getMeets } from '../utils/firebaseCalls';
 
 const useStyles = makeStyles((theme) => createStyles({
   root: {
@@ -140,6 +141,7 @@ const DataOverview = () => {
             </Paper>
           </Grid>
         </Grid>
+        <MeetHistory meetData={meetData} />
       </Container>
     </Box>         
   )

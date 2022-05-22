@@ -9,8 +9,6 @@ import DataOverview from './DataOverview';
 import audio from '../assets/audio/harleysInHawaii.mp3';
 
 import './Dashboard.css';
-import Navbar from './Navbar';
-import MeetHistory from './MeetTable/MeetHistory';
 
 class Dashboard extends React.Component {
   constructor() {
@@ -120,7 +118,7 @@ class Dashboard extends React.Component {
           </div>
         </section>
         <DataOverview />
-        <MeetHistory />
+        
       </div>
     )
   }
