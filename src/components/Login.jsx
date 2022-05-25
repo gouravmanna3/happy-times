@@ -119,10 +119,10 @@ const Login = (riveProps= {}) => {
         trigFailInput.fire();
         console.log(error)
         if(error.code === 'auth/wrong-password'){
-          toast.error('Please check the Password');
+          toast.error('Please check the Password', {theme: 'colored'});
         }
         if(error.code === 'auth/user-not-found'){
-          toast.error('Please check the Email');
+          toast.error('Please check the Email', {theme: 'colored'});
         }
       })
   };

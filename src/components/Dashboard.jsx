@@ -1,17 +1,13 @@
 import React from 'react';
-import Popup from 'reactjs-popup';
 import { Modal, Button } from 'react-bootstrap';
-import { minions } from '../assets/images/minions.gif';
-import { play } from '../assets/images/play.gif';
 import Confetti from 'react-confetti';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DataOverview from './DataOverview';
 import audio from '../assets/audio/harleysInHawaii.mp3';
-
+import FooterModal from './FooterModal';
 import Navbar from "./Navbar";
 
 import './Dashboard.css';
-
 
 class Dashboard extends React.Component {
   constructor() {
@@ -19,14 +15,14 @@ class Dashboard extends React.Component {
     this.state = {
       show: true,
       showConfetti: true,
-      playMusic: false
+      playMusic: false,
+      open: false
     }
     this.audioRef = React.createRef();
     this.audioRef.current = new Audio(audio);
   }
 
   componentDidMount() {
-    console.log('speak')
     let speech = new SpeechSynthesisUtterance('Hello Likhitha');
     speech.voice = window.speechSynthesis.getVoices().filter(function(voice) {
       return voice.name == "Google हिन्दी"
@@ -36,6 +32,15 @@ class Dashboard extends React.Component {
 
   handleClose = () => {
     this.setState({show: false, showConfetti: false})
+  };
+
+
+  handleOpen = () => {
+    this.setState({open: true})
+  };
+
+  handleModalClose = () => {
+    this.setState({open: false})
   };
 
   handleShow = () => {
@@ -97,7 +102,6 @@ class Dashboard extends React.Component {
           <div className="container">
             <div className="banner-text">
               <p>Happiness has 9 letters but mine has 8</p>
-               
               {
                 playMusic ?
                     <>
@@ -113,14 +117,14 @@ class Dashboard extends React.Component {
                     <FontAwesomeIcon className="play-icon" icon="fa-solid fa-play" />
                   </button>
               }
-              
             </div>
           </div>
         </section>
         <DataOverview />
         <footer>
-          Developed by Gourav with &#10084;
+          Developed by Gourav with &#10084; <Button variant="link" className="clickHereBtn" onClick={this.handleOpen}>Click Here</Button>
         </footer>
+        <FooterModal handleClose={this.handleModalClose} open={this.state.open} />
       </div>
     )
   }

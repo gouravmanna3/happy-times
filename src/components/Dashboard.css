@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&Patrick+Hand&Roboto+Slab:wght@200&display=swap');
 
 .modalBody {
   text-align: center;
@@ -100,6 +99,24 @@ footer {
   background-color: black;
 }
 
+.clickHereBtn {
+  padding: 1px !important;
+  text-decoration: none !important;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.modalBg .modal-content{
+  background: url('https://i.pinimg.com/736x/4c/65/f9/4c65f913798dcd566fb929d0973a37e6--old-paper-texture-yard-sales.jpg');
+}
+
+.modalBodyText {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.modalFooterText {
+  font-family: 'Roboto Slab', serif;
+}
+
 @keyframes glowing-button-85 {
   0% {
     background-position: 0 0;
@@ -135,9 +152,6 @@ footer {
   width: 30px;
   margin-top: 20px;
 }
-
-
-
 
 @media screen and (min-width: 520px) and (max-width: 720px){
 

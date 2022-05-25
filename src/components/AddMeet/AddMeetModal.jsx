@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import debounce from 'lodash/debounce';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
 // import Backdrop from '@mui/material/Backdrop';
 // import Box from '@mui/material/Box';
 // import Modal from '@mui/material/Modal';
@@ -40,6 +41,7 @@ const AddMeetModal = ({open, handleClose}) => {
   const [time, setTime] = React.useState({from: new Date().getTime(), to: new Date().getTime(), error: false});
   const [placesCount, setPlacesCount] = React.useState('');
   const [places, setPlaces] = React.useState({placesCount: '', placesName: {}});
+  const [disableAddBtn, setDisableAddBtn] = React.useState(true);
 
   const onTimeChange = (newValue, name) => {
     setTime(prevState => ({...prevState, [name]: newValue.getTime()}));
@@ -58,14 +60,21 @@ const AddMeetModal = ({open, handleClose}) => {
   }, 500);
 
   const handlePlacesChange = (event) => {
+    if(event.target.value) {
+      setDisableAddBtn(false);
+    } else {
+      setDisableAddBtn(true);
+    }
     debouncedSearch(event.target.name, event.target.value)
   };
 
   const onAddClick = async () => {
     try {
       await createMeet({ date: date, fromTime: time.from, toTime: time.to, id: uuidv4(), places: Object.values(places) });
+      toast.success(`Added Succesfully! ${String.fromCodePoint('0x1F603')}`, {theme: 'colored'});
     } catch(e) {
       console.log(e);
+      toast.error(`Adding Failed! ${String.fromCodePoint('0x1F622')}`, {theme: 'colored'});
     }
     handleClose();
   }
@@ -146,7 +155,7 @@ const AddMeetModal = ({open, handleClose}) => {
         <Button variant="danger" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={onAddClick}>
+        <Button variant="primary" onClick={onAddClick} disabled={disableAddBtn}>
           Add
         </Button>
       </Modal.Footer>

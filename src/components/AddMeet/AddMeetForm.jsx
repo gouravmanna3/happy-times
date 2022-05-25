@@ -70,7 +70,7 @@ const AddMeetForm = ({date, time, onDateChange, onTimeChange, handlePlacesChange
         </TextField>
           {[...new Array(placesCount)].map((_, index) => {
             return (
-              <TextField name={`Place${index+1}`} key={`Place ${index+1}`} label={`Place ${index+1}`} variant="outlined"  onChange={handlePlacesChange} />
+              <TextField name={`Place${index+1}`} key={`Place ${index+1}`} label={`Place ${index+1}`} variant="outlined"  onChange={handlePlacesChange} required/>
             )})
           }
       </Stack>
