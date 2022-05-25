@@ -26,15 +26,11 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('Helllo')
-    // let speech = new SpeechSynthesisUtterance('Hello Likhitha');
-    // window.speechSynthesis.speak(speech);
-    
-  }
-
-  textToSpeech = (text) => {
-    let speech = new SpeechSynthesisUtterance(text);
-    speech.text = text;
+    console.log('speak')
+    let speech = new SpeechSynthesisUtterance('Hello Likhitha');
+    speech.voice = window.speechSynthesis.getVoices().filter(function(voice) {
+      return voice.name == "Google हिन्दी"
+    })[0];
     window.speechSynthesis.speak(speech);
   }
 
@@ -50,9 +46,8 @@ class Dashboard extends React.Component {
     const { show } = this.state;
     return (
       <Modal show={show} onHide={this.handleClose}>
-        <Modal.Header closeButton>
-        {/* {this.textToSpeech('Hello World')} */}
-          <Modal.Title>Welcome Likhitha</Modal.Title>
+        <Modal.Header className="modalHeader" closeButton>
+          <Modal.Title className="modalTitle">Welcome Likhitha {String.fromCodePoint('0x1F60A')}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalBody">
           <img src={require('../assets/images/minions.gif')} alt="hi_minions" />
@@ -90,14 +85,14 @@ class Dashboard extends React.Component {
     return ( 
       <div>
         {authToken && <Navbar />}
-        {/* {showConfetti &&
+        {showConfetti &&
           <Confetti
             width={width}
             height={height}
             style={{zIndex: '2000'}}
           />
         }
-        {this.getWelcomeModal()} */}
+        {this.getWelcomeModal()}
         <section className="banner">
           <div className="container">
             <div className="banner-text">

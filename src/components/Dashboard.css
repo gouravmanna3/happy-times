@@ -5,13 +5,19 @@
   text-align: center;
 }
 
+.modalTitle {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+}
+
 .banner {
   /* background: url("../assets/images/banner1.jpeg") no-repeat 0px 0px; */
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../assets/images/banner1.jpeg");
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../assets/images/banner1.jpg");
   background-size: cover;
   position: relative;
   z-index: 1;
   min-height: 470px;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -21,14 +27,18 @@
 }
 
 .banner-text {
-  padding: 10.5vw 0;
+  padding-top: 40vw;
   text-align: center;
 }
 
 .banner-text p{
+  font-size: 2rem;
   color: #fff;
   font-family: 'Dancing Script', cursive;
-  font-size: 4rem;
+}
+
+.banner-text button{
+  margin-top: 22vw;
 }
 
 .button-85 {
@@ -44,6 +54,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  
 }
 
 .button-85:before {
@@ -126,13 +137,71 @@ footer {
 }
 
 
-@media screen and (max-width: 480px) {
-  .banner-text p{
-    font-size: 2rem;
+
+
+@media screen and (min-width: 520px) and (max-width: 720px){
+
+  .banner {
+    background-position: 0px;
   }
 
   .banner-text {
-    padding: 34.5vw 0;
+    padding: 23.5vw 0;
   }
+
+  .banner-text p{
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  }
+
+  .banner-text button{
+    margin-top: 3vw;
+  }
+  
 }
 
+@media screen and (min-width: 720px) {
+
+  .banner {
+    background-position: 0px;
+  }
+
+  .banner-text {
+    padding: 10.5vw 0;
+  }
+
+  .banner-text p{
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  }
+
+  .banner-text button{
+    margin-top: 3vw;
+  }
+  
+}
+
+@media screen and (min-width: 1280px) {
+
+  .banner {
+    background-position: 0px;
+  }
+
+  .banner-text {
+    padding: 10.5vw 0;
+  }
+
+
+  .banner-text p{
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 5rem;
+  }
+
+  .banner-text button{
+    margin-top: 1vw;
+  }
+  
+}
