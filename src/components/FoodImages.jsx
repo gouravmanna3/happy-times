@@ -15,60 +15,82 @@ function srcset(image, size, rows = 1, cols = 1) {
 const itemData = [
   {
     img: require('../assets/images/foods/1.jpg'),
-    title: 'Breakfast',
+    title: 'Mango Juice',
     rows: 2,
     cols: 2,
   },
   {
     img: require('../assets/images/foods/2.jpg'),
-    title: 'Burger',
+    title: 'Pepper Chicken',
   },
   {
     img: require('../assets/images/foods/3.jpg'),
-    title: 'Camera',
+    title: 'Biryani',
   },
   {
     img: require('../assets/images/foods/4.jpg'),
-    title: 'Coffee',
+    title: 'Prawns',
     cols: 2,
   },
   {
     img: require('../assets/images/foods/5.jpg'),
-    title: 'Hats',
+    title: 'Momo',
     cols: 2,
   },
   {
     img: require('../assets/images/foods/6.jpg'),
-    title: 'Honey',
-    author: '@arwinneil',
+    title: 'Prawns',
     rows: 2,
     cols: 2,
   },
   {
     img: require('../assets/images/foods/7.jpg'),
-    title: 'Basketball',
+    title: 'Fruit Salad',
   },
   {
     img: require('../assets/images/foods/8.jpg'),
-    title: 'Fern',
+    title: 'Momo',
   },
   {
     img: require('../assets/images/foods/9.jpg'),
-    title: 'Mushrooms',
+    title: 'Watermelon Juice',
     rows: 2,
     cols: 2,
   },
   {
     img: require('../assets/images/foods/10.jpg'),
-    title: 'Tomato basil',
+    title: 'Haleem',
   },
   {
     img: require('../assets/images/foods/11.jpg'),
-    title: 'Sea star',
+    title: 'Ice-cream',
   },
   {
     img: require('../assets/images/foods/12.jpg'),
-    title: 'Bike',
+    title: 'Icecream',
+    cols: 2,
+  },
+  {
+    img: require('../assets/images/foods/13.jpg'),
+    title: 'Orange Juice',
+  },
+  {
+    img: require('../assets/images/foods/14.jpg'),
+    title: 'Icecream',
+  },
+  {
+    img: require('../assets/images/foods/15.jpg'),
+    title: 'FrenchFries',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: require('../assets/images/foods/16.jpg'),
+    title: 'FrenchFries',
+  },
+  {
+    img: require('../assets/images/foods/17.jpg'),
+    title: 'Noddles',
     cols: 2,
   },
 ];

@@ -1,109 +1,94 @@
-.form-container{
-  background: linear-gradient(150deg,#1B394D 33%,#2D9DA7 34%,#2D9DA7 66%,#EC5F20 67%);
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  padding: 30px 20px 50px;
-}
-.form-container .title{
-  font-size: 23px;
-  text-transform: capitalize;
-  letter-spacing: 1px;
-}
+.login-form-component-root {
+  --border-radius-1x: 2px;
+  --border-radius-2x: calc(var(--border-radius-1x) * 2);
 
-.form-container .subtitle{
+  --spacing-half: 4px;
+  --spacing-1x: 8px;
+  --spacing-2x: calc(var(--spacing-1x) * 2);
+  --spacing-3x: calc(var(--spacing-1x) * 3);
+  --spacing-4x: calc(var(--spacing-1x) * 4);
 
-}
+  --font-size-16: 16px;
+  --login-form-el-height: 50px;
 
-.form-container .title-container {
-  margin: 0 0 60px;
-  color: #fff;
-}
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #000000;
 
-.form-container .form-horizontal{
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}
-.form-horizontal .form-icon{
-  color: #fff;
-  background-color: #1B394D;
-  font-size: 75px;
-  line-height: 92px;
-  height: 90px;
-  width: 90px;
-  margin: -65px auto 10px;
-  border-radius: 50%;
-}
-.form-horizontal .form-group{
-  margin: 0 0 10px;
-  position: relative;
-}
-.form-horizontal .form-group:nth-child(3){ margin-bottom: 30px; }
-.form-horizontal .form-group .input-icon{
-  color: #e7e7e7;
-  font-size: 23px;
-  position: absolute;
-  left: 0;
-  top: 10px;
-}
-.form-horizontal .form-control{
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
-  height: 50px;
-  padding: 10px 10px 10px 40px;
-  margin: 0 0 5px;
-  border: none;
-  border-bottom: 2px solid #e7e7e7;
-  border-radius: 0px;
-  box-shadow: none;
-}
-.form-horizontal .form-control:focus{
-  box-shadow: none;
-  border-bottom-color: #EC5F20;
-}
-.form-horizontal .form-control::placeholder{
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
-}
-.form-horizontal .forgot{
-  font-size: 13px;
-  font-weight: 600;
-  text-align: right;
-  display: block;
-}
-.form-horizontal .forgot a{
-  color: #777;
-  transition: all 0.3s ease 0s;
-}
-.form-horizontal .forgot a:hover{
-  color: #777;
-  text-decoration:  underline;
-}
-.form-horizontal .signin{
-  color: #fff;
-  background-color: #EC5F20;
-  font-size: 17px;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  width: 100%;
-  padding: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  transition: all 0.4s ease 0s;
-}
-.form-horizontal .signin:hover,
-.form-horizontal .signin:focus{
-  font-weight: 600;
-  letter-spacing: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3) inset;
-}
-
-.login-container {
+  height: 100%;
+  min-width: 400px;
   margin: 0 auto;
-  width: 380px;
-  -webkit-transform: translateY(40%);
-  -ms-transform: translateY(40%);
-  transform: translateY(40%);
+}
+
+.form-container {
+  border-radius: var(--border-radius-2x);
+  background-color: #ffffff;
+  padding: var(--spacing-4x);
+  box-sizing: border-box;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: var(--spacing-half);
+  box-sizing: border-box;
+}
+
+.form-container input {
+  height: var(--login-form-el-height);
+  width: 100%;
+  box-sizing: border-box;
+  line-height: var(--login-form-el-height);
+  font-size: var(--font-size-16);
+  color: #000000;
+  background-color: #f1f1f1;
+  outline: none;
+  padding: 0 var(--spacing-2x);
+  cursor: text;
+  border: none;
+  border-radius: var(--border-radius-1x);
+}
+
+.login-btn {
+  display: block;
+  border: none;
+  padding: 0;
+
+  height: var(--login-form-el-height);
+  width: 100%;
+  text-align: center;
+  line-height: var(--login-btn-height);
+  font-size: var(--font-size-16);
+  border-radius: 0 0 10px 10px;
+  margin: 0 0 var(--spacing-2x);
+
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #303030;
+  color: #f1f1f1;
+}
+
+.rive-wrapper {
+  width: 100%;
+}
+
+.rive-container {
+  min-height: 300px;
+  min-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.rive-story-container-login {
+  background-color: #d6e2ea;
+  min-height: 100vh;
+  min-width: fit-content;
 }

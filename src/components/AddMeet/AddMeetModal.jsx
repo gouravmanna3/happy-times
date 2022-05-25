@@ -4,8 +4,36 @@ import Button from 'react-bootstrap/Button';
 import debounce from 'lodash/debounce';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
+// import Backdrop from '@mui/material/Backdrop';
+// import Box from '@mui/material/Box';
+// import Modal from '@mui/material/Modal';
+// import Fade from '@mui/material/Fade';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
 import AddMeetForm from './AddMeetForm';
 import { createMeet } from '../../utils/firebaseCalls';
+
+const style = {
+  // position: 'absolute',
+  // top: '50%',
+  // left: '50%',
+  // transform: 'translate(-50%, -50%)',
+  // width: 400,
+  // bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  // boxShadow: 24,
+  // p: 4,
+
+  // position: 'absolute',
+  // width: '88%',
+  // height: 'auto',
+  // top: '10%',
+  // left: '50%',
+  // right: 'auto',
+  // bottom: 'auto',
+  // bgcolor: 'background.paper',
+  // transform: 'translate(-50%, -50%)',
+};
 
 const AddMeetModal = ({open, handleClose}) => {
   const [date, setDate] = React.useState(new Date().getTime());
@@ -14,8 +42,11 @@ const AddMeetModal = ({open, handleClose}) => {
   const [places, setPlaces] = React.useState({placesCount: '', placesName: {}});
 
   const onTimeChange = (newValue, name) => {
-    console.log(newValue)
     setTime(prevState => ({...prevState, [name]: newValue.getTime()}));
+  };
+
+  const onDateChange = (newDate) => {
+    setDate(newDate);
   }
 
   const handlePlacesCountChange = (event) => {
@@ -64,21 +95,52 @@ const AddMeetModal = ({open, handleClose}) => {
   }, [time.from, time.to]);
 
   return (
+    // <Modal
+    //     aria-labelledby="transition-modal-title"
+    //     aria-describedby="transition-modal-description"
+    //     open={open}
+    //     onClose={handleClose}
+    //     closeAfterTransition
+    //     BackdropComponent={Backdrop}
+    //     BackdropProps={{
+    //       timeout: 500,
+    //     }}
+    //   >
+    //     <Fade in={open}>
+    //       <Box sx={style}>
+    //       <AddMeetForm 
+    //       date={date} 
+    //       setDate={setDate} 
+    //       time={time}
+    //       onTimeChange={onTimeChange}
+    //       onDateChange={onDateChange}
+    //       places={places} 
+    //       handlePlacesChange={handlePlacesChange} 
+    //       placesCount={placesCount}
+    //       handlePlacesCountChange={handlePlacesCountChange}
+    //     />
+    //       </Box>
+    //     </Fade>
+    //   </Modal>
+    
     <Modal show={open} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Add New Meet</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <div>
         <AddMeetForm 
           date={date} 
           setDate={setDate} 
           time={time}
-          onTimeChange={onTimeChange} 
+          onTimeChange={onTimeChange}
+          onDateChange={onDateChange}
           places={places} 
           handlePlacesChange={handlePlacesChange} 
           placesCount={placesCount}
           handlePlacesCountChange={handlePlacesCountChange}
         />
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="danger" onClick={handleClose}>

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { sortBy } from 'lodash';
+import { sortBy, orderBy } from 'lodash';
 
 const getHoursDiff = (from, to) => {
   const hoursDiff = moment.duration(moment(new Date(to)).diff(moment(new Date(from)))).asHours();
@@ -17,7 +17,6 @@ const mapValues = (readings, meetData) => {
     }
     return data;
   });
-  console.log(filledReadings);
   return filledReadings;
 }
 
@@ -32,7 +31,7 @@ export const getReadings = (length = 60, meetData) => {
 };
 
 export const sortMeetData = (meetData) => {
-  return sortBy(meetData, [(data) => data.date])
+  return orderBy(meetData, [(data) => data.date], ['desc']).map((meet,index) => ({...meet, sno: index+1}));
 };
 
 export const formatDate = (date, format) => {

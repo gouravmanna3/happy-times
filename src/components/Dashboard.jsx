@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DataOverview from './DataOverview';
 import audio from '../assets/audio/harleysInHawaii.mp3';
 
+import Navbar from "./Navbar";
+
 import './Dashboard.css';
 
 
@@ -84,8 +86,10 @@ class Dashboard extends React.Component {
   render() {
     const { innerWidth: width, innerHeight: height } = window;
     const { showConfetti, playMusic } = this.state;
+    const authToken = sessionStorage.getItem("authToken");
     return ( 
       <div>
+        {authToken && <Navbar />}
         {/* {showConfetti &&
           <Confetti
             width={width}

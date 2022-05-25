@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => createStyles({
   }
 }));
 
-const AddMeetForm = ({date, setDate, time, onTimeChange, handlePlacesChange, placesCount, handlePlacesCountChange}) => {
+const AddMeetForm = ({date, time, onDateChange, onTimeChange, handlePlacesChange, placesCount, handlePlacesCountChange}) => {
   
   const classes = useStyles();
   return(
@@ -27,8 +27,7 @@ const AddMeetForm = ({date, setDate, time, onTimeChange, handlePlacesChange, pla
           label="Date (dd/mm/yyyy)"
           value={date}
           onChange={(newDate) => {
-            console.log(newDate);
-            setDate(newDate.getTime());
+            onDateChange(newDate.getTime());
           }}
           renderInput={(params) => <TextField {...params} />}
         />

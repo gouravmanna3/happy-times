@@ -8,7 +8,7 @@ import { sortMeetData, formatDate, formatPlaces, formatTime } from '../../utils/
 
 const columns = [
   { id: 'sno', label: 'S.No', minWidth: 70 },
-  { id: 'date', label: 'Date', minWidth: 130, align: 'right' },
+  { id: 'date', label: 'Date', minWidth: 134, align: 'right' },
   {
     id: 'fromTime',
     label: 'From',
@@ -91,8 +91,8 @@ const MeetHistory = ({meetData}) => {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   return (
-                    <StyledTableRow role="checkbox" tabIndex={-1} key={row.code}>
-                      <TableCell component="th" scope="row">{index+1}</TableCell>
+                    <StyledTableRow role="checkbox" tabIndex={-1} key={row.id}>
+                      <TableCell component="th" scope="row">{row.sno}</TableCell>
                       <TableCell align="right">{formatDate(row.date, 'Do MMM, YYYY')}</TableCell>
                       <TableCell align="right">{formatTime(row.fromTime)}</TableCell>
                       <TableCell align="right">{formatTime(row.toTime)}</TableCell>
