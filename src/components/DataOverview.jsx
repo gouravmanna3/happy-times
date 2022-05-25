@@ -119,13 +119,16 @@ const DataOverview = () => {
   const [meetData, setMeetData] = useState([]);
   const classes = useStyles();
 
-  useEffect(async () => {
+  useEffect(() => {
+    const getMeetData = async () => {
     try {
       const res = await getMeets();
       setMeetData(res);
     } catch(e){
       console.log(e);
     }
+  }
+  getMeetData();
   }, []);
  
   return (

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Outlet } from "react-router-dom";
-import Dashboard from '../components/Dashboard';
-import Login from '../components/Login';
+import { Navigate } from "react-router-dom";
 
 function ProtectedRoute({children, redirectLink}) {
   const authToken = sessionStorage.getItem("authToken");

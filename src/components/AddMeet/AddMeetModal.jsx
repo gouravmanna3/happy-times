@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 import AddMeetForm from './AddMeetForm';
 import { createMeet } from '../../utils/firebaseCalls';
 
-const style = {
+// const style = {
   // position: 'absolute',
   // top: '50%',
   // left: '50%',
@@ -34,7 +34,7 @@ const style = {
   // bottom: 'auto',
   // bgcolor: 'background.paper',
   // transform: 'translate(-50%, -50%)',
-};
+// };
 
 const AddMeetModal = ({open, handleClose}) => {
   const [date, setDate] = React.useState(new Date().getTime());

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { sortBy, orderBy } from 'lodash';
+import { orderBy } from 'lodash';
 
 const getHoursDiff = (from, to) => {
   const hoursDiff = moment.duration(moment(new Date(to)).diff(moment(new Date(from)))).asHours();

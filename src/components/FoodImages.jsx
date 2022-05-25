@@ -1,16 +1,7 @@
 import React from 'react';
-import { Box, ImageList, ImageListItem, Typography } from '@mui/material';
+import { Box, ImageList, ImageListItem } from '@mui/material';
 
 import './Dashboard.css';
-
-function srcset(image, size, rows = 1, cols = 1) {
-  return {
-    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
-  };
-}
 
 const itemData = [
   {

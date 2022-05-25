@@ -1,8 +1,6 @@
 import React, {
   useRef,
   useState,
-  ChangeEvent,
-  SyntheticEvent,
   useEffect
 } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -11,17 +9,13 @@ import {
   useStateMachineInput,
   Layout,
   Fit,
-  Alignment,
-  UseRiveParameters,
-  RiveState,
-  StateMachineInput,
+  Alignment
 } from 'rive-react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './Login.css';
 
 const STATE_MACHINE_NAME = 'Login Machine';
-const LOGIN_PASSWORD = 'teddy';
 const LOGIN_TEXT = 'Login';
 
 

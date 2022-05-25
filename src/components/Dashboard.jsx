@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     let speech = new SpeechSynthesisUtterance('Hello Likhitha');
     speech.voice = window.speechSynthesis.getVoices().filter(function(voice) {
-      return voice.name == "Google हिन्दी"
+      return voice.name === "Google हिन्दी"
     })[0];
     window.speechSynthesis.speak(speech);
   }
@@ -105,14 +105,14 @@ class Dashboard extends React.Component {
               {
                 playMusic ?
                     <>
-                    <button className="button-85" role="button" onClick={this.onPlayMusic}>
+                    <button className="button-85" onClick={this.onPlayMusic}>
                       Pause music
                       <FontAwesomeIcon className="play-icon" icon="fa-solid fa-pause" />
                     </button>
                     <img className="music-playing" src={require('../assets/images/play.gif')} alt="music_playing" />
                   </>
                 :
-                  <button className="button-85" role="button" onClick={this.onPlayMusic}>
+                  <button className="button-85" onClick={this.onPlayMusic}>
                     Play music
                     <FontAwesomeIcon className="play-icon" icon="fa-solid fa-play" />
                   </button>
